@@ -41,7 +41,7 @@ int main(int argc, char **argv) {
     double K = 100.0; //Preço de strike
     double r = 0.1275; // taxa de juros livre de risco
     double v = 0.35; // Volatilidade do ativo
-    double T  = 2.0; // Um ano até a expiração
+    double T  = 1.0; // Um ano até a expiração
 
 //Calculando o valor put/call
 double call = call_price(S, K, r, v, T);

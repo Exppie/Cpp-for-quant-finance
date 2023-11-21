@@ -13,7 +13,7 @@ do {
     x = 2.0 * rand() / static_cast<double>(RAND_MAX) - 1;
     y = 2.0 * rand() / static_cast<double>(RAND_MAX) - 1;
     euclid_sq = x * x + y * y;
-} while (euclid_sq <= 1.0);
+} while (euclid_sq >= 1.0);
 
 return x * sqrt(-2 * log(euclid_sq) / euclid_sq);
 
@@ -50,10 +50,10 @@ double monte_carlo_put_price(const int& num_sims, const double& S, const double&
 }
 
 int main(int argc, char **argv) {
-    int num_sims = 10000000; //número de caminhos de ativos simulados
+    int num_sims = 100000000; //número de caminhos de ativos simulados
     double S = 100.00;
     double K = 100.00;
-    double r = 0.1225;
+    double r = 0.1275;
     double v = 0.2;
     double T = 1.0;
 
