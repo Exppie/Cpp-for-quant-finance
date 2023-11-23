@@ -50,7 +50,7 @@ double monte_carlo_put_price(const int& num_sims, const double& S, const double&
 }
 
 int main(int argc, char **argv) {
-    int num_sims = 100000000; //número de caminhos de ativos simulados
+    int num_sims = 1000000000; //número de simulações
     double S = 100.00;
     double K = 100.00;
     double r = 0.1275;
@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
     double call = monte_carlo_call_price(num_sims, S, K, r, v, T);
     double put = monte_carlo_put_price(num_sims, S, K, r, v, T);
 
-    std::cout << "N de caminhos: " << num_sims << std::endl;
+    std::cout << "N de simulações: " << num_sims << std::endl;
     std::cout << "Underlying: " << S  << std::endl;
     std::cout << "Strike: " << K  << std::endl;
     std::cout << "Taxa livre de risco: " << r  << std::endl;
