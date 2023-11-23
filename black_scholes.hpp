@@ -17,12 +17,12 @@ double norm_cdf(const double x) {
     }
 }
 
-double d_j(const int j, const double S, const double K, const double r, const double v, const double T){
-    return (log (S / K) + (r + (pow(-1, j-1)) * 0.5 * v * v) * T) / (v * (pow(T,0.5)))/
+double d_j (const int j, const double S, const double K, const double r, const double v, const double T) {
+    return (log (S / K) + (r + (pow(-1, j - 1)) * 0.5 * v * v) * T) / (v * (pow (T, 0.5)));
 }
 
 double call_price(const double S, const double K, const double r, const double v, const double T) {
-    return S * norm_cdf(d_j(1, S,K, r, v, T)) - K * exp (-r * T) * norm_cdf(d_j(2, S, K, r, v, T));
+    return S * norm_cdf(d_j(1, S, K, r, v, T)) - K * exp (-r * T) * norm_cdf(d_j(2, S, K, r, v, T));
 }
 
 // Call Delta
@@ -31,7 +31,7 @@ double call_delta (const  double S, const double K, const double r, const double
 }
 
 //Call Gamma
-double call_gamma(const  double S, const double K, const double r, const double v, const double T) {
+double call_gamma (const  double S, const double K, const double r, const double v, const double T) {
     return norm_cdf(d_j(1, S, K, r, v, T)) / (S * v * sqrt(T));
 }
 
@@ -53,7 +53,7 @@ double call_rho(const  double S, const double K, const double r, const double v,
 
 // Calculando o preço de uma Put com base em S, K, r, v, sigma e T
 double put_price(const double S, const double K, const double r, const double v, const double T) {
-    return -S * norm_cdf(-d_j(1, S, K, r, v, T)) + K * exp(-r * T) * norm_cdf (-d_j(2, K, r, v, T));
+    return - S * norm_cdf(- d_j (1, S, K, r, v, T)) + K * exp(-r * T) * norm_cdf (- d_j (2, K, r, v, T));
 }
 
 // Put Delta
@@ -63,7 +63,7 @@ double put_delta(const double S, const double K, const double r, const double v,
 
 // Put Gamma
 double put_gamma(const double S, const double K, const double r, const double v, const double T) {
-    return call_gamma(1, S, K, r, v, T); // paridade put-call 
+    return call_gamma(S, K, r, v, T); // paridade put-call 
 }
 
 // Put Vega
@@ -93,7 +93,8 @@ do {
     x = 2.0 * rand() / static_cast <double> (RAND_MAX) - 1;
     y = 2.0 * rand() / static_cast <double> (RAND_MAX) - 1;
     euclid_sq = x * x + y * y;
-}while (euclid_sq >= 1.0);
+
+} while (euclid_sq >= 1.0);
 
 return x * sqrt (-2 * log (euclid_sq) / euclid_sq);
 
