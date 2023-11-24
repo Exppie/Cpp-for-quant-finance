@@ -53,7 +53,7 @@ double call_rho(const  double S, const double K, const double r, const double v,
 
 // Calculando o preço de uma Put com base em S, K, r, v, sigma e T
 double put_price(const double S, const double K, const double r, const double v, const double T) {
-    return - S * norm_cdf(- d_j (1, S, K, r, v, T)) + K * exp(-r * T) * norm_cdf (- d_j (2, K, r, v, T));
+    return - S * norm_cdf(- d_j (1, S, K, r, v, T)) + K * exp(-r * T) * norm_cdf (- d_j (2, S, K, r, v, T));
 }
 
 // Put Delta

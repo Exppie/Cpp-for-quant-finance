@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
     std::cout << "Strike: " << K << std::endl;
     std::cout << "Taxa livre de risco: " << r << std::endl;
     std::cout << "Volatilidade: " << v << std::endl;
-    std::cout << "Maturidade" << T << std::endl;
+    std::cout << "Maturidade: " << T << std::endl;
     
     std::cout << "Preço da Call: " << call << std::endl;
     std::cout << "Call Delta: " << call_delta_v << std::endl;
