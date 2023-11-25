@@ -24,6 +24,8 @@ int main(int argc, char **argv) {
     double put_theta_v = call_theta(S, K, r, v, T);
     double put_rho_v = call_rho(S, K, r, v, T);
 
+
+    //Output
     std::cout << "Underlying: " << S << std::endl;
     std::cout << "Strike: " << K << std::endl;
     std::cout << "Taxa livre de risco: " << r << std::endl;
