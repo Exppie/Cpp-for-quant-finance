@@ -12,6 +12,7 @@ double call_gamma_fdm(const double S, const double K, const double r, const doub
     return (call_price(S + delta_S, K, r, v, T) - 2 * call_price(S, K, r, v, T) + call_price(S - delta_S, K, r, v, T))/ (delta_S * delta_S);
 }
 
+
 int main(int argc, char **argv) {
 
     double S = 100.00;
@@ -23,6 +24,7 @@ int main(int argc, char **argv) {
 
     double call_delta_f = call_delta_fdm(S, K, r, v, T, delta_S);
     double call_gamma_f = call_delta_fdm(S, K, r, v, T, delta_S);
+    double call_vega_f = call_delta_fdm(S, K, r, v, T, vega_S);
 
     std::cout << "Underlying: " << S << std::endl;
     std::cout << "Delta underlying: " << delta_S << std::endl;
@@ -33,7 +35,5 @@ int main(int argc, char **argv) {
 
     std::cout << "Call Delta: " << call_delta_f << std::endl;
     std::cout << "Call Gamma: " << call_gamma_f << std::endl;
-
-
 
 }
