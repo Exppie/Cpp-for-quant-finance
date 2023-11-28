@@ -12,20 +12,10 @@ double call_gamma_fdm(const double S, const double K, const double r, const doub
     return (call_price(S + delta_S, K, r, v, T) - 2 * call_price(S, K, r, v, T) + call_price(S - delta_S, K, r, v, T))/ (delta_S * delta_S);
 }
 
-double call_vega_fdm(const double S, const double K, const double r, const double v, const double T, const double vega_S ) {
-    return  (call_price(S, K, r, v + vega_S, T) - call_price(S, K, r, v, T)) / vega_S;
-}
-
-double call_rho_fdm(const double S, const double K, const double r, const double v, const double T, const double vega_S ) {
-    return  (call_price(S, K, r, v + vega_S, T) - call_price(S, K, r, v, T)) / vega_S;
-}
-
 int main(int argc, char **argv) {
 
     double S = 100.00;
     double delta_S = 0.001;
-    double vega_S = 0.001;
-    double rho_S = 0.001;
     double K = 100.00;
     double r = 0.05;
     double v = 0.2;
