@@ -99,5 +99,4 @@ int main(int argc, char **argv) {
 
     std::cout << "Call Delta:  " << call_delta_m << std::endl;
     std::cout << "Call Gamma:  " << call_gamma_m << std::endl;
-
 }

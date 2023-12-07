@@ -98,5 +98,4 @@ do {
 
 return x * sqrt (-2 * log (euclid_sq) / euclid_sq);
 
-
 }
