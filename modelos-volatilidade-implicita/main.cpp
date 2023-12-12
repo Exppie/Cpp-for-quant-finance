@@ -2,7 +2,7 @@
 #define __MAIN_CPP
 
 #include "black-scholes.hpp"
-#include "interval_bisection.hpp"
+#include "newton_raphson.hpp"
 #include <iostream>
 
 int main(int argc, char **argv){
@@ -16,13 +16,15 @@ int main(int argc, char **argv){
     BlackScholesCall bsc(S, K, r, T); //bsc é um parametro genérico
 
 
-    //Parametros do intervalo bisseccional
-    double low_vol = 0.05;
-    double high_vol = 0.35;
-    double episilon = 0.001;
+    //Parâmetros para o modelo Newton Raphson
+    double init = 0.3;  //Estimativa de volatilidade implícita de 30%
+    double epsilon = 0.001;
 
     //Calculando a volatilidade implícita
-    double sigma = interval_bisection(C_M, low_vol, high_vol, episilon, bsc);
+    double sigma =  newton_raphson  <BlackScholesCall, 
+                                    &BlackScholesCall::option_price,
+                                    &BlackScholesCall::option_vega>
+        (C_M, init, epsilon, bsc);
 
     //Output
     std::cout <<"Volatilidade Implicíta: " << sigma << std::endl;

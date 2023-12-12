@@ -30,6 +30,11 @@ double call_price (const double S, const double K, const double r, const double 
     return S * norm_cdf(d_j(1, S, K, r, sigma, T)) - K * exp (-r * T) * norm_cdf (d_j(2, S, K, r, sigma, T));
 }
 
+//Calculando o Vega de uma opção europeia baseado em S, K, r, V, sigma e T
+double call_vega(const double S, const double K, const double r, const double sigma, const double T){
+    return S * sqrt(T) * norm_pdf (d_j(1, S, K, r, sigma, T));
+}
+
 #endif
 
 
